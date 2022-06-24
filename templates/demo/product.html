@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> register</h1>
+
+
+            <div class="card " style="width: 18rem;">
+                <img src="{{ product.photo_file.url }}" class="card-img-top " alt="{{ product.photo_file }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item{{ product.count }}</li>
+                    <li class="list-group-item">A second item{{ product.price }}</li>
+                    <li class="list-group-item">A third item{{ product.category }}</li>
+                    <li class="list-group-item">A third item{{ product.model }}</li>
+                </ul>
+
+            </div>
+
+{% endblock %}

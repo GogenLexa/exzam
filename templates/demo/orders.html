@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> register</h1>
+    {% if orders %}
+
+        <div class="container row" style="gap: 5rem">
+            {% for item in orders %}
+                <div class="card col-3" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.status_verbose  }}</h5>
+                    </div>
+                    {% for product in item.iteminorder_set.all %}
+                            <p class="card-text">
+                                Название товара: {{ product.product.name }} <br>
+                                Колпичество: {{ product.count }} <br>
+                            </p>
+                        {% endfor %}
+
+
+                </div>
+            {% endfor %}
+
+
+        </div>
+         {% else %}
+        <p> emtpy</p>
+    {% endif %}
+{% endblock %}

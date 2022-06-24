@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> register</h1>
+    {% if form.errors %}
+        <div class="alert-danger">
+            <p class="p-2"></p>
+        </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <p>вы в нутри <a href="{% url 'logout' %}">ямете кудасай</a></p>
+    {% else %}
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" class="btn btn-primary" name="вход">
+            <input type="hidden" value="{{ next }}" name="next">
+        </form>
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> register</h1>
+    <div class="container row" style="gap: 5rem">
+        {% for item in products %}
+            <div class="card col-3" style="width: 18rem;">
+                <img src="{{ item.photo_file.url }}" class="card-img-top "width="300" height="300"  alt="{{ item.photo_file }}">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item{{ item.count }}</li>
+                    <li class="list-group-item">A second item{{ item.price }}</li>
+                    <li class="list-group-item">A third item{{ item.category }}</li>
+                    <li class="list-group-item">A third item{{ item.model }}</li>
+                </ul>
+
+            </div>
+        {% endfor %}
+
+
+    </div>
+{% endblock %}
